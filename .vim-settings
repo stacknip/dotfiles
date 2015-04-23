@@ -1,0 +1,154 @@
+set exrc
+" Makes sure that if there is an ".exrc"-file present in the current working directory, this gets executed.
+
+set number
+" Zorgt dat de nummering voor de regels wordt weergeven.
+" number, nu, #, nonumber, nonu
+"	if number and relativenumber is set
+"		if vim 7.3 ==> the one last set is the one being used
+"		if vim 7.4 ==> a combination of both is being used
+
+set relativenumber
+" Show (partial) command in the last line of the screen
+" relativenumber, rnu
+
+" set cursorline
+" Highlight the screen line of the cursor with CursorLine. Useful to easily spot the cursor.
+" cursorline, cul
+" Is ge-"comment", omdat deze in een console zorgt dat de regel waarin de cursor zich bevindt blauw wordt i.p.v. onderstreept.
+
+set incsearch
+" While typing a search command, show where the pattern, as it was typed so far, matches. The matched string is highlighted. 
+" CTRL-L can be used to add one character from after the current match to the command line.
+" CTRL-R CTRL-W can be used to add the word at the end of the current match, excluding the characters that were already typed.
+
+set wrap
+" Standaard al aan, zorgt dat wanneer tekst niet op de breedte van het scherm past, dat deze dan op de volgende regel wordt weergeven. (Er wordt geen <EOL> ingevoegd.)
+
+set linebreak
+" Zorgt dat een wrap bij een karakter in de system variabele 'breakat' in tegenstelling tot simpelweg de breedte van het scherm te vullen totdat deze vol is. In 'breakat' staan standaard de volgende karakters: " ^I!@*-+;:,./?". 
+" linebreak, lbr, nolinebreak, nolbr
+
+set nolist
+" list zorgt dat <EOL>'s als "$" en tabs als "^I" weergegeven worden. 
+" list, nolist
+
+"set scrolloff=5
+" scrolloff houdt de waarde in zich die bepaald hoeveel regels een zoekterm van de bovenkant of onderkant van het scherm moet worden gescrollt. 
+" scrolloff, so
+
+set laststatus=2
+" laststatus houdt de waarde die invloed heeft op de statusline, daarbij geld bij:
+" 0	:laat nooit de statusline zien
+" 1	:laat alleen de statusline zien als er minimaal 2 windows (splitscreen) zijn
+" 2	:laat altijd de statusline zien
+" laststatus, ls
+
+set hlsearch
+"hlsearch markeert alle instanties die overeenkomen met het laatst gezochte patroon. Het commando :noh (of voluit :nohlsearch) zet de markering uit totdat er opnieuw gezocht wordt.
+"hlsearch, hls
+
+set noequalalways
+"equalalways zorgt dat het splitten van windows in even grote delen gaat. Standaard wordt deze optie gezet voor zowel horizontaal als verticaal, maar dat kan verandert worden met de optie eadirection.
+"equalalways, ea
+
+set eadirection=both
+"eadirection bepaald als equalalways "geset" is, voor welke richtingen dit dan geldt. De waarden die geldig zijn voor deze variabele zijn:
+"both	:in zowel horizontale als verticale richtingen wordt equalalways uitgevoerd
+"ver	:alleen in de verticale richting wordt equalalways uitgevoerd
+"hor	:alleen in de horizontale richting wordt equalalways uitgevoerd
+"eadirection
+
+set winheight=20
+"winheight houdt de variabele die de minimale regelhoogte aangeeft van het huidige window. Minder dan 10 zou niet comfortabel zijn.
+"winheight, wh
+
+set winwidth=40
+"winwidth houdt de variabele die de minimale karakterbreedte aangeeft van het huidige window. Minder dan 40 zou niet comfortabel zijn.
+"winwidth, wiw
+
+"set winminheight=10
+"winminheight houdt de variabele die de minimale regelhoogte aangeeft van alle windows. Minder dan 10 zou niet comfortabel zijn.
+
+
+"set winminwidth=40
+"winminwidth houdt de variabele die de minimale karakterbreedte aangeeft van alle windows. Minder dan 40 zou niet comfortabel zijn.
+
+
+set splitbelow
+"splitbelow bepaalt dat wanneer een window wordt gesplitst in horizontale richting, het het nieuwe bestand onder verschijnt.
+
+set splitright
+"splitright bepaalt dat wanneer een window wordt gesplitst in verticale richting, het het nieuwe bestand rechts verschijnt.
+
+set showcmd
+" zorgt dat het commando getoond wordt wanneer deze gegeven wordt.
+
+set path=.,/usr/include,/media/storage/commands/ubuntu-commands,,
+"
+
+set autoindent
+"
+
+"let g:loaded_netrw = 1
+"let g:loaded_netrwPlugin = 1
+" zorgt dat de "explorer" niet opstart wanneer Vim opgestart wordt met een directory als argument.
+
+"set verbose=1
+" geeft de verbositeit aan van VIM, i.e. hoeveel deze laat weten wat uitvoerd wordt, (wat deze normaal gesproken niet zou aangeven).
+
+set lazyredraw
+" When this option is set, the screen will not be redrawn while executing macros, registers and other commands that have not been typed. Also, updating the window title is postponed.
+" lazyredraw, lz
+
+set ttyfast
+" Indicates a fast terminal connection. More characters will be sent to the screen for redrawing, instead of using insert/delete line commands. Improves smoothness of redrawing when there are multiple windows and the terminal does not support a scrolling region. Also enables the extra wrinting of characters at the end of each screen line for lines that wrap. This helps when using copy/paste with the mouse in an xterm and other terminals.
+" ttyfast, tf
+
+"set notagbsearch
+" When searching for a tag(e.g., for the ":ta" command), Vim can either use a binary search or a linear search in a tags file. Binary searching makes searchin for a tag a LOT faster, but a lenear search will find more tags if the tags file wasn't properly sorted. Vim normally assumes that your tags files are sorted, or indicate that they are not sorted. Only when this is not the case does the 'tagbsearch' option need to be switched off.
+" tagbsearch, tbs
+
+set modeline
+" If set, a number of lines at the beginning and end of the file are checked for modelines.
+" The amount of lines being checked for modelines is defined in the 'modelines' variable.
+" modeline, ml
+
+filetype plugin on
+" If set, this enables the feature that loads filetype-plugins.
+" These plugins can be found in "$VIMRUNTIME/ftplugin".
+" In our case "/usr/share/vim/vim73/ftplugin"
+
+set breakindent
+" If set, this makes wrapped lines continue in the same indent level as at the beginning of the line.
+" breakindent, bri
+
+set wildmode=list:longest
+" The wildmode variable holds the method being used for autocompletion when giving ex-commands.
+" list:longest => when more than one match, list all matches and complete till longest common string.
+" wildmode, wim
+
+set viminfo='10,<40,s10,h
+" This sets the behavior of how the Viminfo file will keep track of the contents of registers and jumping behavior and such.
+" '10 => The amount of files where marks are remembered from.
+" <40 => The amount of lines of contents of registers that wil be remembered.
+" s10 => The maximum Kbytes of a register before it is deleted
+
+set list
+" This sets that Vim shows characters that normally stay hidden for the reader. Examples of such characters are tabs, newline characters and trailing spaces. Also see the "listchars"-setting.
+
+set listchars=tab:▸-,trail:▫,eol:¬
+" Strings to use in "list" mode and for the ":list" command.  It is a comma separated list of string settings.
+" tab:xy	=> Two characters to be used to show a tab. The first char is used once. The second char is repeated to fill the space that the tab normally occupies.
+" trail:c	=> Character to show for trailing spaces.
+" eol:c		=> Character to show at the end of each line.
+" Used unicode codes:
+" ▸	:25B8
+" ▫	:25AB
+" ¬	:00AC
+
+highlight Nontext ctermbg=0
+" Sets the highlighting-background for non-text to black (, although black is not actually black).
+"
+highlight SpecialKey ctermfg=0*
+" Sets the highlighting-foreground fot special-key to dark-grey
