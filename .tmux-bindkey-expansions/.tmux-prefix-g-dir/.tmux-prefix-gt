@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+tmux run "~/.tmux-bindkey-expansions/.tmux-prefix-g-unbind"
+tmux next-window

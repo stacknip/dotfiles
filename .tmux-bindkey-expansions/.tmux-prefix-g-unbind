@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+tmux unbind -n t
+tmux unbind -n T

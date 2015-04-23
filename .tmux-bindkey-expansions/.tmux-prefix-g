@@ -1,0 +1,3 @@
+#!/usr/bin/env zsh
+tmux bind-key -n t run "~/.tmux-bindkey-expansions/.tmux-prefix-g-dir/.tmux-prefix-gt"
+tmux bind-key -n T run "~/.tmux-bindkey-expansions/.tmux-prefix-g-dir/.tmux-prefix-gT"
