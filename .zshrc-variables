@@ -1,0 +1,17 @@
+# De volgende twee regels zetten de parameters $EDITOR en $VISUAL zo, zodat VIM als
+# standaard editor wordt beschouwd door de shell.
+EDITOR='vim'
+VISUAL='vim'
+
+# De volgende variabele is $cdpath die gelinkt is aan de environment variable
+# $CDPATH. $cdpath is echter een array en $CDPATH is een scalar met de elementen
+# van $cdpath gescheiden door een ':'.
+# $cdpath geeft aan in welke directories er gezocht moet worden om naar toe te
+# gaan.
+cdpath=(.)
+# Hierboven wordt aangegeven dat er eerst gezocht wordt in de huidige directory
+# met de '.'. Het is mogelijk deze array uit te breiden door de punt te volgen
+# door een spatie en vervolgens de directory, voorbeeld:
+# cdpath=(. /media/storage)
+
+export DIRSTACKSIZE=10

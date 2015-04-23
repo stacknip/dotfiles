@@ -1,0 +1,78 @@
+# Dit bestand bevat alle zelf toegevoegde configuraties aan de zsh.
+# Dit bestand wordt ge-"sourced" vanuit ~/.zshrc .
+
+
+# De volgende optie zorgt ervoor dat wanneer er een functie afgerond is,
+# dat alle opties die binnen de functie aangepast zijn terug gezet worden.
+setopt LOCAL_OPTIONS
+# Een manier om in een functie dit te omzeilen is door in de functie zelf toe te voegen:
+# unsetopt LOCAL_OPTIONS
+
+# De volgende optie zorgt ervoor dat wanneer er een functie afgerond is,
+# dat alle traps die binnen de functie aangepast zijn terug gezet worden.
+setopt LOCAL_TRAPS
+# Een manier om in een functie dit te omzeilen is door in de functie zelf toe te voegen:
+# unsetopt LOCAL_TRAPS
+
+# De volgende optie zorgt dat wanneer er een vervanging (substitution) wordt toegepast
+# in een commando, dat deze na een enter eerst wordt weergegeven in zijn nieuwe vorm.
+# Vervolgens kunnen er nog aanpassingen gemaakt worden als de vervanging niet goed bleek.
+setopt HIST_VERIFY
+# Het is ook mogelijk om de vervanging te "expanden" door op tab (^I) te toetsen.
+
+# De volgende optie zal alle overbodige lege ruimtes (e.g. spaties en tabs) in een commando
+# verwijderen wanneer deze naar de geschiedenis (history) wordt geschreven.
+setopt HIST_REDUCE_BLANKS
+
+# De volgende optie zal er voor zorgen dat ieder commando dat uitgevoerd wordt in de
+# history-file komen ($HISTFILE).
+setopt INC_APPEND_HISTORY
+
+# De volgende optie zal er voor zorgen dat als er een spatie voor het commando gegeven
+# wordt, dat deze dan gewoon uitgevoerd wordt, maar niet in de geschiedenis verwerkt
+# wordt.
+setopt HIST_IGNORE_SPACE
+
+# De volgende optie zorgt ervoor dat de commando's fc en history niet in de geschiedenis
+# verwerkt worden.
+setopt HIST_NO_STORE
+
+# De volgende optie zorgt dat wanneer er een directory opgegeven wordt als commando,
+# dat dit dan wordt geïnterperteerd als cd <directory>.
+#setopt AUTO_CD
+# De '$cdpath'-variabele wordt hierbij gerespecteerd.
+# '$cdpath' of ookwel '$CDPATH' wordt zijn waarde toegekend in '~/.zshrc-variabelen'
+# De optie is "disabled", omdat dit niet een gewoonte moet worden. Bovendien
+# kan er verwarring ontstaan bij het uitvoeren van commando's.
+
+# De volgende optie zorgt dat bij iedere "sprong" in directory dat deze wordt gedaan
+# door pushd. Dit heeft als resultaat dat al deze sprongen bijgehouden worden in de
+# directory stack.
+setopt AUTO_PUSHD
+# Het limiet aan "sprongen" wordt aangegeven door de environment variable
+# '$DIRSTACKSIZE' die op zijn beurt zijn waarde krijgt in het bestand:
+# '~/.zshrc-variabelen'.
+
+# De volgende optie zorgt dat wanneer er 'pushd' gebruikt wordt om van directory
+# te veranderen, dat voor twee directories terug geldt dat het commando:
+# 'pushd -2' gebruikt kan worden in plaats van 'pushd +2'.
+setopt PUSHD_MINUS
+
+# De volgende optie zorgt ervoor dat er geen dubbele entries zijn in de directory-
+# history.
+setopt PUSHD_IGNORE_DUPS
+# Wanneer er gebruik wordt gemaakt van 'pushd' en 'popd' in een script zal deze
+# optie waarschijnlijk uitgezet moeten worden. Dit kan door het script te starten met:
+# 'emulate -LR zsh'
+# -L: zorgt dat de optie LOCAL_OPTIONS en LOCAL_TRAPS ge-"set" zijn, dus dat zijn de
+# staat van de terminal die het script startte niet aanpassen.
+# -R: zet alle opties waarvan logisch op zijn standaard waarde.
+
+# De volgende optie zorgt ervoor dat ook "hidden files" "gematched" worden wanneer
+# er een '*' wordt gebruikt als wildcard.
+setopt GLOB_DOTS
+
+
+# De volgende regel zet de edit mode voor commando's naar vi-bindings:
+bindkey -v
+# In het bestand ~/.zshrc is de emacs-binding ge-"comment" ('bindkey -e').
